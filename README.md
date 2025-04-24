@@ -1,230 +1,237 @@
-# Proyecto UF1470 - Administración de Sistemas Gestores de Bases de Datos
+# 💾 Proyecto UF1470 - Administración de Sistemas Gestores de Bases de Datos
 
 **Autor:** Juan de la Morena  
 **Cliente de base de datos:** DBeaver  
 **Entorno:** Windows 10  
 **Bases de datos:** MySQL y SQLite  
-**Repositorio:** [GitHub](https://github.com/tuusuario/tu-repo) *(actualiza este enlace)*
+**Repositorio:** [GitHub](https://github.com/tuusuario/tu-repo) *(actualiza el enlace)*
 
 ---
 
-## 🌟 Objetivo del Proyecto
+## 🎯 Objetivo
 
-Este trabajo forma parte del módulo UF1470 y tiene como objetivo evaluar la comprensión y aplicación práctica en la administración de sistemas gestores de bases de datos (SGBD).
+Este proyecto simula una prueba práctica integral como DBA (Administrador de Base de Datos) para la empresa ficticia **DataSolutions S.A.**, abordando:
 
-Asumes el rol de **DBA (Administrador de Base de Datos)** de la empresa ficticia "DataSolutions S.A.", y debes encargarte de:
-
-- Crear y administrar bases de datos con MySQL y SQLite
-- Configurar usuarios y permisos
-- Insertar y validar datos
-- Automatizar tareas de respaldo
-- Implementar medidas de seguridad y auditoría
-- Optimizar el rendimiento de las consultas
+- Creación y configuración de bases de datos
+- Gestión de usuarios y privilegios
+- Inserción y validación de datos
+- Automatización de tareas
+- Seguridad e integridad de la información
+- Optimización del rendimiento
+- Auditoría de cambios
 
 ---
 
-## 📂 Estructura del Repositorio
+## 🗂️ Estructura del Repositorio
 
 ```
 UF1470_Juan_delaMorena/
 │
 ├── scripts/
-│   ├── mysql/              # Scripts SQL para tareas con MySQL
-│   └── sqlite/             # Scripts SQL para tareas con SQLite
+│   ├── mysql/              # Scripts SQL para MySQL
+│   └── sqlite/             # Scripts SQL para SQLite
 │
-├── tareas_programadas/     # Script de copia de seguridad en Windows
+├── tareas_programadas/     # Script de copia de seguridad automatizada (Windows)
 │
 ├── docs/
-│   ├── capturas_dbeaver/   # Evidencias visuales paso a paso
+│   ├── capturas_dbeaver/   # Evidencias visuales del trabajo realizado
 │   └── informe_final.pdf   # Documento completo del proyecto
 │
-└── README.md               # Este documento
+└── README.md               # Este archivo
 ```
 
 ---
 
-## 🔧 Preparación del Entorno
+## 🧪 Descripción por Secciones
 
-1. **Instalar MySQL:** [https://dev.mysql.com/downloads/mysql/](https://dev.mysql.com/downloads/mysql/)
-2. **Instalar SQLite3:** [https://www.sqlite.org/download.html](https://www.sqlite.org/download.html)
-3. **Instalar DBeaver:** [https://dbeaver.io/](https://dbeaver.io/)
-4. **Instalar VSCode:** [https://code.visualstudio.com/](https://code.visualstudio.com/)
-5. **Extensión Markdown PDF para VSCode** (para convertir este archivo a PDF)
+### ✅ Parte 1 - MySQL
 
----
+1. **Creación de Base de Datos:**  
+   Se crea una base de datos llamada `DataSolutionsDB` para la empresa ficticia **DataSolutions S.A.**.
 
-## 📃 Parte 1: MySQL - Configuración y Administración
+   ```sql
+   CREATE DATABASE DataSolutionsDB;
+   ```
 
-### 1. Crear la base de datos
-```sql
-CREATE DATABASE DataSolutionsDB;
-```
-> *Explicación:* Esto crea una base de datos vacía en el servidor MySQL donde se almacenará la información.
+2. **Gestión de Usuarios:**  
+   Se crean dos usuarios en MySQL:  
+   - `consultor`: con permisos de solo lectura en la base de datos.
+   - `admin_ventas`: con permisos de lectura, inserción y actualización en la tabla `clientes`.
 
-### 2. Crear usuarios y asignar permisos
-```sql
-CREATE USER 'consultor'@'localhost' IDENTIFIED BY 'TuContraseña123';
-GRANT SELECT ON DataSolutionsDB.* TO 'consultor'@'localhost';
+   ```sql
+   CREATE USER 'consultor'@'localhost' IDENTIFIED BY 'TuContraseña123';
+   GRANT SELECT ON DataSolutionsDB.* TO 'consultor'@'localhost';
 
-CREATE USER 'admin_ventas'@'localhost' IDENTIFIED BY 'TuContraseña123';
-GRANT SELECT, INSERT, UPDATE ON DataSolutionsDB.clientes TO 'admin_ventas'@'localhost';
-```
-> *Explicación:* Se crean dos usuarios. Uno con permisos de solo lectura y otro con permisos para insertar y actualizar en la tabla `clientes`.
+   CREATE USER 'admin_ventas'@'localhost' IDENTIFIED BY 'TuContraseña123';
+   GRANT SELECT, INSERT, UPDATE ON DataSolutionsDB.clientes TO 'admin_ventas'@'localhost';
+   ```
 
-### 3. Optimizar una consulta
-```sql
-CREATE INDEX idx_ciudad_fecha ON clientes(ciudad, fecha_registro);
-```
-> *Explicación:* Se crea un índice sobre las columnas utilizadas en los filtros para acelerar la búsqueda.
+3. **Optimización de Consultas:**  
+   Se recibe la consulta original:
 
-### 4. Finalizar consultas pesadas
-```sql
-SHOW PROCESSLIST;
-KILL <ID_DEL_PROCESO>;
-```
-> *Explicación:* Con estos comandos se visualizan y finalizan procesos activos que estén bloqueando el servidor.
+   ```sql
+   SELECT * FROM clientes WHERE ciudad = 'Madrid' AND fecha_registro > '2024-01-01';
+   ```
 
----
+   Se analizó el plan de ejecución de esta consulta y se determinó que sería eficiente crear un índice compuesto para las columnas `ciudad` y `fecha_registro`, de modo que la base de datos pueda realizar una búsqueda más rápida. Esto mejora el rendimiento al hacer las búsquedas más eficientes.
 
-## 📃 Parte 2: SQLite - Creación e Inserción
+   ```sql
+   CREATE INDEX idx_ciudad_fecha ON clientes(ciudad, fecha_registro);
+   ```
 
-### 1. Crear base de datos y tabla
-```sql
-CREATE TABLE clientes (
-    id INTEGER PRIMARY KEY,
-    nombre TEXT,
-    apellido TEXT,
-    ciudad TEXT,
-    fecha_registro DATE
-);
-```
+   **Problema encontrado:**  
+   Sin un índice adecuado, la consulta puede tardar más tiempo en ejecutarse, especialmente si la tabla tiene muchos registros. El uso de índices acelera la búsqueda al reducir la cantidad de datos que deben procesarse.
 
-### 2. Insertar datos de ejemplo
-```sql
-INSERT INTO clientes (nombre, apellido, ciudad, fecha_registro) VALUES
-('Juan', 'Pérez', 'Madrid', '2024-02-15'),
-('Ana', 'López', 'Barcelona', '2023-11-03'),
-('Luis', 'Martínez', 'Sevilla', '2024-01-21'),
-('Clara', 'Ramírez', 'Valencia', '2022-09-12'),
-('Mario', 'Gómez', 'Madrid', '2024-03-01');
-```
+4. **Gestión de Procesos:**  
+   Se identifican consultas que consumen muchos recursos en MySQL utilizando el siguiente comando:
 
-> *Explicación:* Creamos una tabla en SQLite con campos básicos y algunos registros ficticios.
+   ```sql
+   SHOW PROCESSLIST;
+   ```
 
----
+   Para finalizar un proceso que esté utilizando demasiados recursos, se utiliza el comando `KILL` con el ID del proceso correspondiente:
 
-## 🔒 Parte 3: Automatización y Seguridad
+   ```sql
+   KILL 1234;
+   ```
 
-### 1. Copia de seguridad en MySQL
-```sql
-CREATE TABLE clientes_backup AS SELECT * FROM clientes;
-```
+### ✅ Parte 2 - SQLite
 
-### 2. Procedimiento para validar datos
-```sql
-DELIMITER //
-CREATE PROCEDURE insertar_cliente (
-    IN p_nombre VARCHAR(50),
-    IN p_apellido VARCHAR(50),
-    IN p_ciudad VARCHAR(50),
-    IN p_fecha DATE
-)
-BEGIN
-    IF p_fecha > CURDATE() THEN
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'La fecha de registro no puede ser futura.';
-    ELSE
-        INSERT INTO clientes (nombre, apellido, ciudad, fecha_registro)
-        VALUES (p_nombre, p_apellido, p_ciudad, p_fecha);
-    END IF;
-END //
-DELIMITER ;
-```
+1. **Creación de la Base de Datos:**  
+   Se crea una base de datos SQLite llamada `clientes.db`.
 
-### 3. Trigger de auditoría en SQLite
-```sql
-CREATE TABLE log_clientes (
-    fecha_modificacion TEXT,
-    usuario TEXT,
-    operacion TEXT,
-    datos_antiguos TEXT,
-    datos_nuevos TEXT
-);
+   ```sql
+   CREATE TABLE clientes (
+       id INTEGER PRIMARY KEY,
+       nombre TEXT,
+       apellido TEXT,
+       ciudad TEXT,
+       fecha_registro DATE
+   );
+   ```
 
-CREATE TRIGGER trigger_log_update
-AFTER UPDATE ON clientes
-BEGIN
-    INSERT INTO log_clientes (
-        fecha_modificacion, usuario, operacion, datos_antiguos, datos_nuevos
-    )
-    VALUES (
-        datetime('now'),
-        'usuario_windows',
-        'UPDATE',
-        json_object('id', OLD.id, 'nombre', OLD.nombre, 'apellido', OLD.apellido, 'ciudad', OLD.ciudad, 'fecha_registro', OLD.fecha_registro),
-        json_object('id', NEW.id, NEW.nombre, NEW.apellido, NEW.ciudad, NEW.fecha_registro)
-    );
-END;
-```
+2. **Inserción de Datos:**  
+   Se insertan al menos cinco registros en la tabla `clientes`:
 
----
+   ```sql
+   INSERT INTO clientes (nombre, apellido, ciudad, fecha_registro) VALUES
+   ('Juan', 'Pérez', 'Madrid', '2024-02-15'),
+   ('Ana', 'López', 'Barcelona', '2023-11-03'),
+   ('Luis', 'Martínez', 'Sevilla', '2024-01-21'),
+   ('Clara', 'Ramírez', 'Valencia', '2022-09-12'),
+   ('Mario', 'Gómez', 'Madrid', '2024-03-01');
+   ```
 
-## 🚀 Parte 4: Automatización de Tareas
+3. **Trigger de Auditoría:**  
+   Se implementa un trigger en SQLite que registra cualquier actualización en la tabla `clientes` en una tabla de auditoría llamada `log_clientes`:
 
-### Script .bat para copias de seguridad
-```bat
-@echo off
-set FECHA=%DATE:~6,4%-%DATE:~3,2%-%DATE:~0,2%
-mysqldump -u root -pTuContraseña DataSolutionsDB > "C:\\backups\\DataSolutionsDB_%FECHA%.sql"
-```
+   ```sql
+   CREATE TABLE log_clientes (
+       fecha_modificacion TEXT,
+       usuario TEXT,
+       operacion TEXT,
+       datos_antiguos TEXT,
+       datos_nuevos TEXT
+   );
 
-### Planificación con Programador de Tareas de Windows
-1. Abre el Programador de Tareas.
-2. Crea una nueva tarea.
-3. Configura la ejecución diaria del script `.bat` anterior.
+   CREATE TRIGGER trigger_log_update
+   AFTER UPDATE ON clientes
+   BEGIN
+       INSERT INTO log_clientes (
+           fecha_modificacion,
+           usuario,
+           operacion,
+           datos_antiguos,
+           datos_nuevos
+       )
+       VALUES (
+           datetime('now'),
+           'usuario_windows',
+           'UPDATE',
+           json_object('id', OLD.id, 'nombre', OLD.nombre, 'apellido', OLD.apellido, 'ciudad', OLD.ciudad, 'fecha_registro', OLD.fecha_registro),
+           json_object('id', NEW.id, NEW.nombre, NEW.apellido, NEW.ciudad, NEW.fecha_registro)
+       );
+   END;
+   ```
 
----
+### ✅ Parte 3 - Automatización y Seguridad
 
-## 📈 Parte 5: Monitoreo del Rendimiento
+1. **Copia de Seguridad:**  
+   Se crea un script SQL para realizar una copia de seguridad de la tabla `clientes` creando una nueva tabla llamada `clientes_backup`:
 
-Herramientas sugeridas:
-- DBeaver (consultas y monitoreo en vivo)
-- MySQL Workbench (para entornos avanzados)
-- `SHOW STATUS`, `SHOW PROCESSLIST` para analizar cuellos de botella
+   ```sql
+   CREATE TABLE clientes_backup AS SELECT * FROM clientes;
+   ```
 
----
+2. **Procedimiento Almacenado:**  
+   Se crea un procedimiento almacenado en MySQL que valida que la fecha de registro del cliente no sea futura:
 
-## 📷 Capturas de Pantalla (Evidencias)
+   ```sql
+   DELIMITER //
 
-Inserta en la carpeta `/docs/capturas_dbeaver/` y enlaza aquí:
+   CREATE PROCEDURE insertar_cliente (
+       IN p_nombre VARCHAR(50),
+       IN p_apellido VARCHAR(50),
+       IN p_ciudad VARCHAR(50),
+       IN p_fecha DATE
+   )
+   BEGIN
+       IF p_fecha > CURDATE() THEN
+           SIGNAL SQLSTATE '45000'
+           SET MESSAGE_TEXT = 'La fecha de registro no puede ser futura.';
+       ELSE
+           INSERT INTO clientes (nombre, apellido, ciudad, fecha_registro)
+           VALUES (p_nombre, p_apellido, p_ciudad, p_fecha);
+       END IF;
+   END //
 
-1. [ ] Creación de base de datos y usuarios en MySQL  
-2. [ ] Ejecución de consultas en SQLite  
-3. [ ] Verificación de procedimiento almacenado  
-4. [ ] Disparador y log de auditoría  
-5. [ ] Script de copia en acción  
+   DELIMITER ;
+   ```
 
-Puedes incluirlas con sintaxis Markdown:
-```markdown
-![Creación de base de datos en DBeaver](docs/capturas_dbeaver/creacion_bd.png)
-```
+### ✅ Parte 4 - Planificación de Tareas
+
+1. **Planificación de Copias de Seguridad Automáticas:**  
+   Se crea un script `.bat` para hacer backups automáticos en Windows utilizando `mysqldump`:
+
+   ```bat
+   @echo off
+   set FECHA=%DATE:~6,4%-%DATE:~3,2%-%DATE:~0,2%
+   mysqldump -u root -pTuContraseña DataSolutionsDB > "C:\backups\DataSolutionsDB_%FECHA%.sql"
+   ```
+
+2. **Monitoreo del Rendimiento:**  
+   Se recomienda usar herramientas como **MySQL Workbench**, **Percona Toolkit**, y **Nagios/Zabbix** para monitorear el rendimiento de la base de datos y detectar cuellos de botella. Las consultas `SHOW STATUS` y `SHOW PROCESSLIST` también son útiles para monitorear en tiempo real.
 
 ---
 
-## 🎓 Conclusiones
+## 🖼️ Capturas
 
-Este proyecto me permitió:
-- Aplicar de forma práctica los conceptos de administración de bases de datos
-- Automatizar tareas clave como backups y validación de integridad
-- Documentar y presentar un proyecto técnico en GitHub de forma profesional
-
-> *Lo que mejoraría:* usar contenedores (como Docker) para pruebas automatizadas y monitoreo avanzado.
+Se incluyen capturas de cada paso realizado con **DBeaver**, para verificar la ejecución y el resultado de cada script.
 
 ---
 
-## 💡 Recomendaciones Finales
+## 📘 Informe PDF
 
-- Utiliza comentarios explicativos en todos tus scripts SQL.
-- Guarda tus scripts y capturas en GitHub para que el repositorio sea autoexplicativo.
-- Convierte este archivo a PDF con la extensión `Markdown PDF` para tener una entrega formal.
+El informe en formato PDF documenta cada paso realizado, con código y explicación teórica. Convertido desde Markdown con extensión `Markdown PDF` en **VSCode**.
 
+---
+
+## 🧠 Reflexiones Finales
+
+Este proyecto me ha permitido aplicar conocimientos de:
+- Modelado y gestión de bases de datos
+- Seguridad y control de accesos
+- Automatización en entorno Windows
+- Auditoría de cambios y validación de integridad
+
+Además, he mejorado mi documentación técnica y organización de proyectos en GitHub.
+
+---
+
+## ⚙️ Herramientas Utilizadas
+
+- DBeaver (https://dbeaver.io/)
+- MySQL Server (https://dev.mysql.com/downloads/mysql/)
+- SQLite3 (https://www.sqlite.org/download.html)
+- Visual Studio Code (https://code.visualstudio.com/)
+- Markdown PDF (extensión de VSCode)
