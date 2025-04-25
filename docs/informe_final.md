@@ -235,24 +235,24 @@ mysqldump -u root -pTuContraseña DataSolutionsDB ^
 ## 🖼️ Capturas de Pantalla
 
 ### 1. Creación de la base de datos en MySQL
-![Creación de base de datos](https://raw.githubusercontent.com/JuanHoob/Trabajo_IFCT0310_1470/main/docs/capturas_dbeaver/creacion_bd.png)
-> [Ver imagen a tamaño real](https://raw.githubusercontent.com/JuanHoob/Trabajo_IFCT0310_1470/main/docs/capturas_dbeaver/creacion_bd.png)
+![Creación de base de datos](capturas_dbeaver/creacion_bd.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/creacion_bd.png)
 
 ### 2. Creación de la base de datos MySQL en DBeaver
-![Creación de DB MySQL](https://raw.githubusercontent.com/JuanHoob/Trabajo_IFCT0310_1470/main/docs/capturas_dbeaver/CreateDBMySql.png)
-> [Ver imagen a tamaño real](https://raw.githubusercontent.com/JuanHoob/Trabajo_IFCT0310_1470/main/docs/capturas_dbeaver/CreateDBMySql.png)
+![Creación de DB MySQL](capturas_dbeaver/CreateDBMySql.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/CreateDBMySql.png)
 
 ### 3. Creación de la base de datos SQLite en DBeaver
-![Creación de DB SQLite](https://raw.githubusercontent.com/JuanHoob/Trabajo_IFCT0310_1470/main/docs/capturas_dbeaver/CreateDBSqlite.png)
-> [Ver imagen a tamaño real](https://raw.githubusercontent.com/JuanHoob/Trabajo_IFCT0310_1470/main/docs/capturas_dbeaver/CreateDBSqlite.png)
+![Creación de DB SQLite](capturas_dbeaver/CreateDBSqlite.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/CreateDBSqlite.png)
 
 ### 4. Definición de la tabla SQLite (`clientes`)
-![Definición de tabla SQLite](https://raw.githubusercontent.com/JuanHoob/Trabajo_IFCT0310_1470/main/docs/capturas_dbeaver/nombreSqliteDB.png)
-> [Ver imagen a tamaño real](https://raw.githubusercontent.com/JuanHoob/Trabajo_IFCT0310_1470/main/docs/capturas_dbeaver/nombreSqliteDB.png)
+![Definición de tabla SQLite](capturas_dbeaver/nombreSqliteDB.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/nombreSqliteDB.png)
 
 ### 5. Especificación de la ruta y archivo SQLite
-![Ruta de la DB SQLite](https://raw.githubusercontent.com/JuanHoob/Trabajo_IFCT0310_1470/main/docs/capturas_dbeaver/pathsqliteDB.png)
-> [Ver imagen a tamaño real](https://raw.githubusercontent.com/JuanHoob/Trabajo_IFCT0310_1470/main/docs/capturas_dbeaver/pathsqliteDB.png)
+![Ruta de la DB SQLite](capturas_dbeaver/pathsqliteDB.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/pathsqliteDB.png)
 
 
 ## 🎓 Conclusiones
