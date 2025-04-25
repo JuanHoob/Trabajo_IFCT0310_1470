@@ -238,14 +238,14 @@ mysqldump -u root -pTuContraseña DataSolutionsDB ^
 
 ```markdown
 ### 1. Creación de la base de datos en MySQL
-![Creación de base de datos](docs/capturas_dbeaver/creacion_bd.png)
+![Creación de base de datos](capturas_dbeaver/creacion_bd.png)
 
-> [Ver imagen a tamaño real](docs/capturas_dbeaver/creacion_bd.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/creacion_bd.png)
 
 ### 2. Ejecución de consulta en SQLite
-![Consulta en SQLite](docs/capturas_dbeaver/consulta_sqlite.png)
+![Consulta en SQLite](capturas_dbeaver/consulta_sqlite.png)
 
-> [Ver imagen a tamaño real](docs/capturas_dbeaver/consulta_sqlite.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/consulta_sqlite.png)
 
 *(Repite para cada paso.)*
 ```
