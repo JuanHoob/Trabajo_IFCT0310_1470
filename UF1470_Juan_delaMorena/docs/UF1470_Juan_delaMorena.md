@@ -51,7 +51,7 @@ UF1470_Juan_delaMorena/
 Coloca tus capturas en `docs/capturas_dbeaver/` y enlázalas así:
 
 ```markdown
-![Creación de base de datos](docs/capturas_dbeaver/creacion_bd.png)
+![Creación de base de datos](capturas_dbeaver/creacion_bd.png)
 ```
 
 ---
