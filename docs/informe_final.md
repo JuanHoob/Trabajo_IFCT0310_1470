@@ -210,12 +210,49 @@ set FECHA=%DATE:~6,4%-%DATE:~3,2%-%DATE:~0,2%
 mysqldump -u root -pTuContraseña DataSolutionsDB ^
   > "C:\backups\DataSolutionsDB_%FECHA%.sql"
 ```
+#### Automatización de Backup - Programador de Tareas de Windows
 
-### Programador de Tareas de Windows
+Una vez creado el script de copia de seguridad `backup_windows.bat`, se procedió a su automatización mediante el Programador de tareas de Windows.
 
-1. Abrir “Programador de Tareas”  
-2. Crear tarea básica diaria  
-3. Señalar el script `.bat` y configurar hora de ejecución  
+#### 1. Apertura del Programador de tareas
+
+- Se accede a **Programador de tareas** desde el menú Inicio de Windows.
+
+#### 2. Creación de una nueva tarea básica
+
+- Se selecciona la opción **Crear tarea básica**.
+- Se asigna:
+  - **Nombre**: `Backup automático base de datos`
+  - **Descripción**: `Realiza automáticamente una copia de seguridad de la base de datos MySQL cada día.`
+
+#### 3. Configuración de la frecuencia
+
+- Se elige ejecutar la tarea **Diariamente**.
+
+#### 4. Programación de la hora de ejecución
+
+- Se establece una **hora fija** de ejecución diaria (por ejemplo, 20:00 h).
+
+#### 5. Selección de la acción
+
+- Se configura la tarea para **Iniciar un programa**.
+- Se selecciona el archivo `backup_windows.bat` previamente creado.
+
+#### 6. Revisión y finalización
+
+- Se revisa el resumen de la tarea.
+- Se pulsa en **Finalizar** para dejar programada la ejecución automática.
+
+---
+
+#### 📋 Observaciones Importantes
+
+- El archivo `backup_windows.bat` debe tener permisos de ejecución adecuados.
+- La contraseña de MySQL debe estar escrita en el script si se desea ejecución sin intervención manual.
+- La tarea se ejecutará siempre que el equipo esté encendido a la hora programada.
+- La copia de seguridad se almacenará en la ruta especificada en el `.bat` (`C:\backups\`).
+
+---
 
 ---
 
@@ -234,54 +271,69 @@ mysqldump -u root -pTuContraseña DataSolutionsDB ^
 
 ## 🖼️ Capturas de Pantalla
 
-### 1. Creación de base de datos en MySQL
-![Creación de base de datos](capturas_dbeaver/creacion_bd.png)
+### 1. Vista general: tipos de bases de datos en DBeaver
+![Tipos de bases de datos en DBeaver](capturas_dbeaver/creacion_bd.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/creacion_bd.png)
 
-### 2. Creación de tabla en MySQL
-![Creación de tabla](capturas_dbeaver/create_table.png)
-
-### 3. Creación de tabla en SQLite con Drop
-![Crear tabla SQLite con DROP](capturas_dbeaver/create_tableSQLite_conDrop.png)
-
-### 4. Crear base de datos MySQL
+### 2. Crear base de datos MySQL
 ![Create DB MySQL](capturas_dbeaver/CreateDBMySql.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/CreateDBMySql.png)
 
-### 5. Crear base de datos SQLite
-![Create DB SQLite](capturas_dbeaver/CreateDBSqlite.png)
-
-### 6. Nombre de base de datos en SQLite
+### 3. Crear base de datos SQLite (nombre de la base de datos)
 ![Nombre DB SQLite](capturas_dbeaver/nombreSqliteDB.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/nombreSqliteDB.png)
 
-### 7. Ruta del fichero SQLite
+### 4. Crear base de datos SQLite (definir ruta del archivo)
 ![Ruta DB SQLite](capturas_dbeaver/pathsqliteDB.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/pathsqliteDB.png)
 
-### 8. Crear índice para mejorar consultas
-![Crear índice](capturas_dbeaver/createIndexMejoradeconsultas.png)
+### 5. Crear la base de datos SQLite
+![Create DB SQLite](capturas_dbeaver/CreateDBSqlite.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/CreateDBSqlite.png)
 
-### 9. Insertar datos en la tabla
+### 6. Creación de tabla en MySQL
+![Creación de tabla en MySQL](capturas_dbeaver/create_table.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/create_table.png)
+
+### 7. Creación de tabla en SQLite (con Drop if exists)
+![Crear tabla SQLite con DROP](capturas_dbeaver/create_tableSQLite_conDrop.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/create_tableSQLite_conDrop.png)
+
+### 8. Insertar datos en la tabla
 ![Insertar datos](capturas_dbeaver/insertandoData.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/insertandoData.png)
 
-### 10. Usuarios: DROP IF EXISTS
-![Usuarios DROP IF](capturas_dbeaver/UsersDropIf.png)
+### 9. Crear índice para mejorar consultas
+![Crear índice para mejorar consultas](capturas_dbeaver/createIndexMejoradeconsultas.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/createIndexMejoradeconsultas.png)
 
-### 11. Procedimiento almacenado creado
+### 10. Crear procedimiento almacenado
 ![Procedimiento almacenado](capturas_dbeaver/procedure.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/procedure.png)
 
-### 12. Ejecución del procedimiento (caso correcto)
+### 11. Ejecutar procedimiento almacenado (caso correcto)
 ![CALL comprobación procedimiento](capturas_dbeaver/CALLcomprobaciónProcedure.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/CALLcomprobaciónProcedure.png)
 
-### 13. Ejecución del procedimiento (caso con error)
+### 12. Ejecutar procedimiento almacenado (caso error, fecha futura)
 ![CALL comprobación procedimiento 2](capturas_dbeaver/CALLcomprobaciónProcedure2.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/CALLcomprobaciónProcedure2.png)
 
-### 14. Kill de procesos pesados
-![Kill procesos](capturas_dbeaver/killprocess.png)
+### 13. Usuarios: eliminar usuario si existe (DROP IF EXISTS)
+![Usuarios DROP IF](capturas_dbeaver/UsersDropIf.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/UsersDropIf.png)
 
-### 15. Mostrar procesos activos
+### 14. Mostrar procesos activos en MySQL
 ![Mostrar procesos](capturas_dbeaver/ShowProcess.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/ShowProcess.png)
+
+### 15. Kill de procesos pesados
+![Kill procesos](capturas_dbeaver/killprocess.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/killprocess.png)
 
 ### 16. Backup realizado en MySQL
 ![Backup SQL](capturas_dbeaver/backupSQL.png)
-
+> [Ver imagen a tamaño real](capturas_dbeaver/backupSQL.png)
 
 ## 🎓 Conclusiones
 
