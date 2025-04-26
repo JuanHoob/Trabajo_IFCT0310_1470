@@ -234,25 +234,53 @@ mysqldump -u root -pTuContraseña DataSolutionsDB ^
 
 ## 🖼️ Capturas de Pantalla
 
-### 1. Creación de la base de datos en MySQL
+### 1. Creación de base de datos en MySQL
 ![Creación de base de datos](capturas_dbeaver/creacion_bd.png)
-> [Ver imagen a tamaño real](capturas_dbeaver/creacion_bd.png)
 
-### 2. Creación de la base de datos MySQL en DBeaver
-![Creación de DB MySQL](capturas_dbeaver/CreateDBMySql.png)
-> [Ver imagen a tamaño real](capturas_dbeaver/CreateDBMySql.png)
+### 2. Creación de tabla en MySQL
+![Creación de tabla](capturas_dbeaver/create_table.png)
 
-### 3. Creación de la base de datos SQLite en DBeaver
-![Creación de DB SQLite](capturas_dbeaver/CreateDBSqlite.png)
-> [Ver imagen a tamaño real](capturas_dbeaver/CreateDBSqlite.png)
+### 3. Creación de tabla en SQLite con Drop
+![Crear tabla SQLite con DROP](capturas_dbeaver/create_tableSQLite_conDrop.png)
 
-### 4. Definición de la tabla SQLite (`clientes`)
-![Definición de tabla SQLite](capturas_dbeaver/nombreSqliteDB.png)
-> [Ver imagen a tamaño real](capturas_dbeaver/nombreSqliteDB.png)
+### 4. Crear base de datos MySQL
+![Create DB MySQL](capturas_dbeaver/CreateDBMySql.png)
 
-### 5. Especificación de la ruta y archivo SQLite
-![Ruta de la DB SQLite](capturas_dbeaver/pathsqliteDB.png)
-> [Ver imagen a tamaño real](capturas_dbeaver/pathsqliteDB.png)
+### 5. Crear base de datos SQLite
+![Create DB SQLite](capturas_dbeaver/CreateDBSqlite.png)
+
+### 6. Nombre de base de datos en SQLite
+![Nombre DB SQLite](capturas_dbeaver/nombreSqliteDB.png)
+
+### 7. Ruta del fichero SQLite
+![Ruta DB SQLite](capturas_dbeaver/pathsqliteDB.png)
+
+### 8. Crear índice para mejorar consultas
+![Crear índice](capturas_dbeaver/createIndexMejoradeconsultas.png)
+
+### 9. Insertar datos en la tabla
+![Insertar datos](capturas_dbeaver/insertandoData.png)
+
+### 10. Usuarios: DROP IF EXISTS
+![Usuarios DROP IF](capturas_dbeaver/UsersDropIf.png)
+
+### 11. Procedimiento almacenado creado
+![Procedimiento almacenado](capturas_dbeaver/procedure.png)
+
+### 12. Ejecución del procedimiento (caso correcto)
+![CALL comprobación procedimiento](capturas_dbeaver/CALLcomprobaciónProcedure.png)
+
+### 13. Ejecución del procedimiento (caso con error)
+![CALL comprobación procedimiento 2](capturas_dbeaver/CALLcomprobaciónProcedure2.png)
+
+### 14. Kill de procesos pesados
+![Kill procesos](capturas_dbeaver/killprocess.png)
+
+### 15. Mostrar procesos activos
+![Mostrar procesos](capturas_dbeaver/ShowProcess.png)
+
+### 16. Backup realizado en MySQL
+![Backup SQL](capturas_dbeaver/backupSQL.png)
 
 
 ## 🎓 Conclusiones
