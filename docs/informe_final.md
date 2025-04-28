@@ -49,6 +49,7 @@ GRANT SELECT, INSERT, UPDATE
   TO 'admin_ventas'@'localhost';
 ```
 > *Explicación:* Se crean dos perfiles de acceso para separar responsabilidades y minimizar riesgos.
+> *Nota:* he utilizado en el ejemplo de la captura de pantalla el comando DROP if exist ya que un nombre genérico puede que se haya creado y queieras pisarlo de esta forma no te daría error y puedes estar seguro de crear tu usuario en el lugar que quieres
 
 ---
 
@@ -113,7 +114,7 @@ INSERT INTO clientes (nombre, apellido, ciudad, fecha_registro) VALUES
   ('Clara','Ramírez','Valencia', '2022-09-12'),
   ('Mario','Gómez',  'Madrid',   '2024-03-01');
 ```
-> *Nota:* SQLite no gestiona usuarios; la seguridad se delega al sistema de archivos.
+> *Nota:* SQLite no gestiona usuarios; la seguridad se delega al sistema de archivos. Además se ha de tener en cuenta en el ejercicio que hay que cambiar de nomenclatura para la creación de tabla según la base de datos que se esté usando.
 
 ---
 
@@ -269,71 +270,155 @@ Una vez creado el script de copia de seguridad `backup_windows.bat`, se procedi�
 
 ---
 
-## 🖼️ Capturas de Pantalla
+## 🖼️ Capturas de Pantalla Organizadas
 
-### 1. Vista general: tipos de bases de datos en DBeaver
-![Tipos de bases de datos en DBeaver](capturas_dbeaver/creacion_bd.png)
-> [Ver imagen a tamaño real](capturas_dbeaver/creacion_bd.png)
+### Parte 1 – MySQL: Configuración y Administración
 
-### 2. Crear base de datos MySQL
-![Create DB MySQL](capturas_dbeaver/CreateDBMySql.png)
-> [Ver imagen a tamaño real](capturas_dbeaver/CreateDBMySql.png)
+#### 1. Vista general de tipos de bases de datos en DBeaver
+![Tipos de bases de datos en DBeaver](docs/capturas_dbeaver/creacion_bd.png)
+> [Ver imagen a tamaño real](docs/capturas_dbeaver/creacion_bd.png)
 
-### 3. Crear base de datos SQLite (nombre de la base de datos)
-![Nombre DB SQLite](capturas_dbeaver/nombreSqliteDB.png)
-> [Ver imagen a tamaño real](capturas_dbeaver/nombreSqliteDB.png)
-
-### 4. Crear base de datos SQLite (definir ruta del archivo)
-![Ruta DB SQLite](capturas_dbeaver/pathsqliteDB.png)
-> [Ver imagen a tamaño real](capturas_dbeaver/pathsqliteDB.png)
-
-### 5. Crear la base de datos SQLite
-![Create DB SQLite](capturas_dbeaver/CreateDBSqlite.png)
-> [Ver imagen a tamaño real](capturas_dbeaver/CreateDBSqlite.png)
-
-### 6. Creación de tabla en MySQL
-![Creación de tabla en MySQL](capturas_dbeaver/create_table.png)
-> [Ver imagen a tamaño real](capturas_dbeaver/create_table.png)
-
-### 7. Creación de tabla en SQLite (con Drop if exists)
-![Crear tabla SQLite con DROP](capturas_dbeaver/create_tableSQLite_conDrop.png)
-> [Ver imagen a tamaño real](capturas_dbeaver/create_tableSQLite_conDrop.png)
-
-### 8. Insertar datos en la tabla
-![Insertar datos](capturas_dbeaver/insertandoData.png)
-> [Ver imagen a tamaño real](capturas_dbeaver/insertandoData.png)
-
-### 9. Crear índice para mejorar consultas
-![Crear índice para mejorar consultas](capturas_dbeaver/createIndexMejoradeconsultas.png)
-> [Ver imagen a tamaño real](capturas_dbeaver/createIndexMejoradeconsultas.png)
-
-### 10. Crear procedimiento almacenado
-![Procedimiento almacenado](capturas_dbeaver/procedure.png)
-> [Ver imagen a tamaño real](capturas_dbeaver/procedure.png)
-
-### 11. Ejecutar procedimiento almacenado (caso correcto)
-![CALL comprobación procedimiento](capturas_dbeaver/CALLcomprobaciónProcedure.png)
-> [Ver imagen a tamaño real](capturas_dbeaver/CALLcomprobaciónProcedure.png)
-
-### 12. Ejecutar procedimiento almacenado (caso error, fecha futura)
-![CALL comprobación procedimiento 2](capturas_dbeaver/CALLcomprobaciónProcedure2.png)
-> [Ver imagen a tamaño real](capturas_dbeaver/CALLcomprobaciónProcedure2.png)
-
-### 13. Usuarios: eliminar usuario si existe (DROP IF EXISTS)
-![Usuarios DROP IF](capturas_dbeaver/UsersDropIf.png)
+#### 2. Usuarios DROP IF EXISTS
+![Eliminar usuarios si existen](capturas_dbeaver/UsersDropIf.png)
 > [Ver imagen a tamaño real](capturas_dbeaver/UsersDropIf.png)
 
-### 14. Mostrar procesos activos en MySQL
-![Mostrar procesos](capturas_dbeaver/ShowProcess.png)
+#### 3. Crear base de datos MySQL
+![Crear base de datos MySQL](docs/capturas_dbeaver/CreateDBMySql.png)
+> [Ver imagen a tamaño real](docs/capturas_dbeaver/CreateDBMySql.png)
+
+#### 4. Crear tabla clientes (MySQL)
+![Crear tabla en MySQL](docs/capturas_dbeaver/create_table.png)
+> [Ver imagen a tamaño real](docs/capturas_dbeaver/create_table.png)
+
+#### 5. Crear índice para optimizar consultas
+![Crear índice en clientes](docs/capturas_dbeaver/createIndexMejoradeconsultas.png)
+> [Ver imagen a tamaño real](docs/capturas_dbeaver/createIndexMejoradeconsultas.png)
+
+---
+
+### Parte 2 – SQLite: Creación e Inserción de Datos
+
+#### 6. Crear base de datos SQLite (nombre)
+![Nombre BD SQLite](capturas_dbeaver/nombreSqliteDB.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/nombreSqliteDB.png)
+
+#### 7. Definir ruta del archivo SQLite
+![Ruta archivo SQLite](capturas_dbeaver/pathsqliteDB.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/pathsqliteDB.png)
+
+#### 8. Crear base de datos SQLite
+![Crear BD SQLite](capturas_dbeaver/CreateDBSqlite.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/CreateDBSqlite.png)
+
+#### 9. Crear tabla clientes SQLite (con DROP IF EXISTS)
+![Crear tabla SQLite](capturas_dbeaver/create_tableSQLite_conDrop.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/create_tableSQLite_conDrop.png)
+
+#### 10. Insertar registros de prueba
+![Insertar registros](capturas_dbeaver/insertandoData.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/insertandoData.png)
+
+---
+
+### Parte 3 – Automatización y Seguridad
+
+#### 11. Backup manual de MySQL
+![Backup manual SQL](capturas_dbeaver/backupSQL.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/backupSQL.png)
+
+#### 12. Crear procedimiento almacenado (MySQL)
+![Crear procedimiento](capturas_dbeaver/procedure.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/procedure.png)
+
+#### 13. Ejecutar procedimiento almacenado - correcto
+![CALL procedimiento correcto](capturas_dbeaver/CALLcomprobaciónProcedure.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/CALLcomprobaciónProcedure.png)
+
+#### 14. Ejecutar procedimiento almacenado - error
+![CALL procedimiento error](capturas_dbeaver/CALcomprobaciónProcedure2.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/CALcomprobaciónProcedure2.png)
+
+#### 15. Mostrar procesos en ejecución
+![Mostrar procesos activos](capturas_dbeaver/ShowProcess.png)
 > [Ver imagen a tamaño real](capturas_dbeaver/ShowProcess.png)
 
-### 15. Kill de procesos pesados
+#### 16. Kill de procesos bloqueados o pesados (slow_process)
 ![Kill procesos](capturas_dbeaver/killprocess.png)
-> [Ver imagen a tamaño real](capturas_dbeaver/killprocess.png)
+> [Ver imagen a tamaño real](docs/capturas_dbeaver/killprocess.png)
 
-### 16. Backup realizado en MySQL
-![Backup SQL](capturas_dbeaver/backupSQL.png)
-> [Ver imagen a tamaño real](capturas_dbeaver/backupSQL.png)
+#### 17. Crear Trigger de auditoría
+![Crear Trigger Audit](capturas_dbeaver/creadoTriggerAudit.PNG)
+> [Ver imagen a tamaño real](capturas_dbeaver/creadoTriggerAudit.PNG)
+
+#### 18. Ejecutar UPDATE para probar Trigger
+![Prueba UPDATE Trigger](capturas_dbeaver/pruebaUPDATE_trigger.PNG)
+> [Ver imagen a tamaño real](capturas_dbeaver/pruebaUPDATE_trigger.PNG)
+
+#### 19. Visualizar registros en log_clientes
+![Log clientes actualizado](capturas_dbeaver/log_clientescreado.PNG)
+> [Ver imagen a tamaño real](capturas_dbeaver/log_clientescreado.PNG)
+
+---
+
+### Parte 4 – Planificación de Tareas y Backup
+
+#### 20. Script .bat de backup Windows
+![Script de backup Windows](capturas_dbeaver/ScriptbatWin.PNG)
+> [Ver imagen a tamaño real](capturas_dbeaver/ScriptbatWin.PNG)
+
+#### 21. Crear tarea programada en Windows
+![Programador de tareas crear](capturas_dbeaver/programador_de_tareas_crear.PNG)
+> [Ver imagen a tamaño real](capturas_dbeaver/programador_de_tareas_crear.PNG)
+
+#### 22. Nombre y descripción de la tarea
+![Nombre y descripción tarea](capturas_dbeaver/nombre_y_descripcion_tarea.PNG)
+> [Ver imagen a tamaño real](capturas_dbeaver/nombre_y_descripcion_tarea.PNG)
+
+#### 23. Asignación de periodicidad diaria
+![Asignación de temporalidad](capturas_dbeaver/asignacion_de_temporalidad_tarea.PNG)
+> [Ver imagen a tamaño real](capturas_dbeaver/asignacion_de_temporalidad_tarea.PNG)
+
+#### 24. Seleccionar el script .bat
+![Path de script](capturas_dbeaver/PathDeScript.PNG)
+> [Ver imagen a tamaño real](capturas_dbeaver/PathDeScript.PNG)
+
+#### 25. Opciones avanzadas: ejecutar con privilegios
+![Uso del inicio de programa](capturas_dbeaver/usoDelinicioPrograma.PNG)
+> [Ver imagen a tamaño real](capturas_dbeaver/usoDelinicioPrograma.PNG)
+
+#### 26. Resultado de la tarea progr
+![Resultado ejecución de tarea](capturas_dbeaver/resultado_tarea_programada.PNG)
+> [Ver imagen a tamaño real](capturas_dbeaver/resultado_tarea_programada.PNG)
+
+#### 27. Backup generado automáticamente
+![Backup realizado automáticamente](capturas_dbeaver/backupAutoRealizado.PNG)
+> [Ver imagen a tamaño real](capturas_dbeaver/backupAutoRealizado.PNG)
+
+---
+
+### Parte 5 – Monitorización del Rendimiento
+
+#### 28. Acceso al Dashboard de DBeaver
+![Localización Dashboard](capturas_dbeaver/MonitorinDondeDashboard.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/MonitorinDondeDashboard.png)
+
+#### 29. Vista general del Dashboard de Monitorización
+![Vista Dashboard Monitor](capturas_dbeaver/monitoringDashboard.PNG)
+> [Ver imagen a tamaño real](capturas_dbeaver/monitoringDashboard.PNG)
+
+#### 30. Estado general del servidor (Server Status)
+![Server Status DBeaver](capturas_dbeaver/monitoreoStatus.PNG)
+> [Ver imagen a tamaño real](capturas_dbeaver/monitoreoStatus.PNG)
+
+#### 31. Monitorizar procesos activos (SHOW PROCESSLIST)
+![Monitor procesos](capturas_dbeaver/MonitoringShowProcess.PNG)
+> [Ver imagen a tamaño real](capturas_dbeaver/MonitoringShowProcess.PNG)
+
+#### 32. EXPLAIN de consultas para optimización
+![EXPLAIN consultas](capturas_dbeaver/MonitoringExplain.PNG)
+> [Ver imagen a tamaño real](capturas_dbeaver/MonitoringExplain.PNG)
+
+---
 
 ## 🎓 Conclusiones
 
