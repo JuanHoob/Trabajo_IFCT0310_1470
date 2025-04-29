@@ -1,4 +1,4 @@
-# 📘 INFORME FINAL DE PROYECTO
+# INFORME FINAL DE PROYECTO
 
 ## UF1470 – Administración de Sistemas Gestores de Bases de Datos (SGBD)
 
@@ -29,26 +29,11 @@
 
 ---
 
-# 📑 Índice
+<div style="page-break-after: always;"></div>
 
-1. [Descripción General](#descripción-general)
-2. [Parte 1 – MySQL: Configuración y Administración](#parte-1---mysql-configuración-y-administración)
-   - [1. Creación de la Base de Datos](#1-creación-de-la-base-de-datos)
-   - [2. Gestión de Usuarios y Permisos](#2-gestión-de-usuarios-y-permisos)
-   - [3. Optimización de Consultas](#3-optimización-de-consultas)
-   - [4. Gestión de Procesos Lentos](#4-gestión-de-procesos-lentos)
-3. [Parte 2 – SQLite: Creación e Inserción de Datos](#parte-2---sqlite-creación-e-inserción-de-datos)
-   - [1. Creación de la Tabla](#1-creación-de-la-tabla)
-   - [2. Inserción de Registros de Ejemplo](#2-inserción-de-registros-de-ejemplo)
-4. [Parte 3 – Automatización y Seguridad](#parte-3---automatización-y-seguridad)
-   - [1. Copia de Seguridad (MySQL)](#1-copia-de-seguridad-mysql)
-   - [2. Procedimiento Almacenado de Validación](#2-procedimiento-almacenado-de-validación)
-   - [3. Trigger de Auditoría (SQLite)](#3-trigger-de-auditoría-sqlite)
-5. [Parte 4 – Planificación de Tareas](#parte-4---planificación-de-tareas)
-6. [Parte 5 – Monitoreo de Rendimiento](#parte-5---monitoreo-de-rendimiento)
-7. [Capturas de Pantalla Organizadas](#capturas-de-pantalla-organizadas)
+# Índice
 
-### Parte 1 – MySQL: Configuración y Administración
+### [Parte 1 – MySQL: Configuración y Administración](#parte-1---mysql-configuracion-y-administracion)
 
 - [1. Tipos de bases de datos en DBeaver](#1-vista-general-de-tipos-de-bases-de-datos-en-dbeaver)
 - [2. Usuarios DROP IF EXISTS](#2-usuarios-drop-if-exists)
@@ -56,7 +41,7 @@
 - [4. Crear tabla clientes (MySQL)](#4-crear-tabla-clientes-mysql)
 - [5. Crear índice para optimizar consultas](#5-crear-índice-para-optimizar-consultas)
 
-### Parte 2 – SQLite: Creación e Inserción de Datos
+### [Parte 2 – SQLite: Creación e Inserción de Datos](#parte-2---sqlite-creacion-e-insercion-de-datos)
 
 - [6. Crear base de datos SQLite (nombre)](#6-crear-base-de-datos-sqlite-nombre)
 - [7. Definir ruta del archivo SQLite](#7-definir-ruta-del-archivo-sqlite)
@@ -64,7 +49,7 @@
 - [9. Crear tabla clientes SQLite (con DROP IF EXISTS)](#9-crear-tabla-clientes-sqlite-con-drop-if-exists)
 - [10. Insertar registros de prueba](#10-insertar-registros-de-prueba)
 
-### Parte 3 – Automatización y Seguridad
+### [Parte 3 – Automatización y Seguridad](#parte-3---automatizacion-y-seguridad)
 
 - [11. Backup manual de MySQL](#11-backup-manual-de-mysql)
 - [12. Crear procedimiento almacenado (MySQL)](#12-crear-procedimiento-almacenado-mysql)
@@ -76,7 +61,7 @@
 - [18. Ejecutar UPDATE para probar Trigger](#18-ejecutar-update-para-probar-trigger)
 - [19. Visualizar registros en log_clientes](#19-visualizar-registros-en-log_clientes)
 
-### Parte 4 – Planificación de Tareas y Backup
+### [Parte 4 – Planificación de Tareas y Backup](#parte-4---planificacion-de-tareas)
 
 - [20. Script .bat de backup Windows](#20-script-bat-de-backup-windows)
 - [21. Crear tarea programada en Windows](#21-crear-tarea-programada-en-windows)
@@ -87,7 +72,7 @@
 - [26. Resultado de la tarea programada](#26-resultado-de-la-tarea-programada)
 - [27. Backup generado automáticamente](#27-backup-generado-automáticamente)
 
-### Parte 5 – Monitorización del Rendimiento
+### [Parte 5 – Monitorización del Rendimiento](#parte-5---monitoreo-de-rendimiento)
 
 - [28. Acceso al Dashboard de DBeaver](#28-acceso-al-dashboard-de-dbeaver)
 - [29. Vista general del Dashboard de Monitorización](#29-vista-general-del-dashboard-de-monitorización)
@@ -99,18 +84,54 @@
 
 ---
 
+<div style="page-break-after: always;"></div>
+
 ## Descripción General
 
-Este informe documenta de forma detallada la realización de la prueba práctica integral como DBA en la empresa ficticia **DataSolutions S.A.**. Incluye:
+Este informe técnico constituye la entrega oficial del módulo **UF1470 – Administración de Sistemas Gestores de Bases de Datos (SGBD)**, correspondiente al certificado de profesionalidad **IFCT0310 – Administración de Bases de Datos**. El trabajo se desarrolla en un entorno simulado que representa una empresa ficticia llamada **DataSolutions S.A.**, especializada en servicios de gestión y análisis de información empresarial.
 
-- Código SQL organizado por tareas
-- Explicaciones pedagógicas paso a paso
-- Espacios para capturas de pantalla como evidencia
-- Scripts de automatización
-- Buenas prácticas de seguridad, rendimiento y documentación
+El objetivo de esta práctica ha sido poner en funcionamiento una infraestructura básica de base de datos relacional, que pueda soportar operaciones habituales de consulta, inserción y mantenimiento de datos, así como implementar medidas de auditoría, seguridad y automatización que forman parte de las responsabilidades habituales de un administrador de bases de datos (DBA).
 
-Este documento será la **entrega oficial** en PDF; el repositorio GitHub sirve como referencia complementaria.
+Durante el desarrollo del informe se han abordado varias tareas técnicas distribuidas en cinco grandes bloques:
 
+### 🧱 Diseño y configuración inicial
+
+Se realizaron operaciones de creación y configuración de bases de datos utilizando **MariaDB** **MySQL** y **SQLite**, incluyendo la definición de esquemas, creación de tablas, e inserción de registros de prueba. Se utilizó el cliente visual **DBeaver** como interfaz de administración para facilitar la conexión y gestión de ambos sistemas.
+
+### 🔒 Seguridad y gestión de usuarios
+
+Se definieron usuarios con distintos niveles de permisos, incluyendo perfiles con acceso restringido a determinadas operaciones o tablas. Esta separación de roles permite garantizar la integridad de los datos y limitar posibles errores o accesos indebidos por parte de los distintos actores del sistema.
+
+### ⚙️ Optimización, procedimientos y auditoría
+
+Se diseñaron e implementaron índices para mejorar el rendimiento de consultas complejas. Asimismo, se desarrolló un **procedimiento almacenado** en MySQL con validación lógica para la inserción de registros, y se configuró un **trigger de auditoría en SQLite** para llevar un control sobre las actualizaciones realizadas en las tablas principales.
+
+### 🔁 Automatización de tareas críticas
+
+Se creó un script de copia de seguridad para exportar los datos de forma periódica y se configuró el **Programador de Tareas de Windows** para su ejecución automática. Esta tarea es fundamental en cualquier sistema productivo para minimizar el riesgo de pérdida de información ante fallos.
+
+### 📊 Monitorización y supervisión del sistema
+
+Se utilizaron las herramientas de monitorización de **DBeaver** y comandos SQL de diagnóstico para identificar cuellos de botella, procesos bloqueantes y rendimiento de las consultas. Además, se exploraron comandos de gestión de procesos y análisis de planes de ejecución mediante `EXPLAIN`.
+
+---
+
+Este informe ha sido documentado paso a paso y contiene:
+
+- Código SQL comentado para cada sección.
+- Capturas de pantalla que demuestran la correcta ejecución de cada acción.
+- Scripts reales listos para ser usados o adaptados.
+- Un enfoque pedagógico pensado para que cualquier lector —incluso sin experiencia previa— pueda seguir el flujo de trabajo, entender las decisiones técnicas y replicar el proceso.
+
+El informe ha sido redactado en **formato Markdown**, y exportado a PDF mediante el editor **Typora**, con estructura paginada, índice automático e imágenes embebidas. Todo el código y material utilizado está disponible también en el siguiente repositorio público de GitHub para su consulta técnica:
+
+🔗 [https://github.com/JuanHoob/Trabajo_IFCT0310_1470.git](https://github.com/JuanHoob/Trabajo_IFCT0310_1470.git)
+
+---
+
+Esta documentación representa, además de una prueba de competencias técnicas, un modelo realista de cómo se debe estructurar un proyecto de administración de bases de datos desde cero, considerando criterios de **seguridad**, **rendimiento**, **documentación** y **automatización**.
+
+---
 
 <div style="page-break-after: always;"></div>
 
@@ -122,7 +143,7 @@ Este documento será la **entrega oficial** en PDF; el repositorio GitHub sirve 
 CREATE DATABASE DataSolutionsDB;
 ```
 
-> *Explicación:* Crea la base de datos vacía donde se alojarán todas las tablas y datos de clientes.
+> _Explicación:_ Crea la base de datos vacía donde se alojarán todas las tablas y datos de clientes.
 
 ---
 
@@ -140,13 +161,15 @@ GRANT SELECT, INSERT, UPDATE
   TO 'admin_ventas'@'localhost';
 ```
 
-> *Explicación:* Se crean dos perfiles de acceso para separar responsabilidades y minimizar riesgos.
+> _Explicación:_ Se crean dos perfiles de acceso para separar responsabilidades y minimizar riesgos.
 
-> *Nota:* he utilizado en el ejemplo de la captura de pantalla el comando DROP if exist ya que un nombre genérico puede que se haya creado  de antemano y quieras pisarlo, de esta forma no te daría error y puedes estar seguro de crear tu usuario en el lugar que quieres.
+> _Nota:_ he utilizado en el ejemplo de la captura de pantalla el comando DROP if exist ya que un nombre genérico puede que se haya creado de antemano y quieras pisarlo, de esta forma no te daría error y puedes estar seguro de crear tu usuario en el lugar que quieres.
 
-> *Consideraciones:* Se ha de tener en cuenta que durante todo el ejercicio que la nomenclatura cambia según la base de datos que se utilice Mqlite, MariaDB o MySQL.
+> _Consideraciones:_ Se ha de tener en cuenta que durante todo el ejercicio que la nomenclatura cambia según la base de datos que se utilice Mqlite, MariaDB o MySQL.
 
 ---
+
+<div style="page-break-after: always;"></div>
 
 ### 3. Optimización de Consultas
 
@@ -170,8 +193,8 @@ CREATE INDEX idx_ciudad_fecha
   ON clientes(ciudad, fecha_registro);
 ```
 
-> *Detalle:* Un índice compuesto en `(ciudad, fecha_registro)` permite filtrar rápidamente por ambos campos.
-> *Consideraciones:* Si la columna `ciudad` tiene poca selectividad (p. ej. muchos “Madrid”), el beneficio será menor. Agregar índices también impacta ligeramente las inserciones/actualizaciones.
+> _Detalle:_ Un índice compuesto en `(ciudad, fecha_registro)` permite filtrar rápidamente por ambos campos.
+> _Consideraciones:_ Si la columna `ciudad` tiene poca selectividad (p. ej. muchos “Madrid”), el beneficio será menor. Agregar índices también impacta ligeramente las inserciones/actualizaciones.
 
 ---
 
@@ -183,14 +206,11 @@ SHOW PROCESSLIST;
 KILL <ID_DEL_PROCESO>;
 ```
 
-> *Explicación:* Con `SHOW PROCESSLIST` vemos las consultas activas y podemos abortar las que bloquean recursos.
+> _Explicación:_ Con `SHOW PROCESSLIST` vemos las consultas activas y podemos abortar las que bloquean recursos.
 
 ---
 
-
-
 <div style="page-break-after: always;"></div>
-
 
 ## Parte 2 - SQLite: Creación e Inserción de Datos
 
@@ -217,14 +237,11 @@ INSERT INTO clientes (nombre, apellido, ciudad, fecha_registro) VALUES
   ('Mario','Gómez',  'Madrid',   '2024-03-01');
 ```
 
-> *Nota:* SQLite no gestiona usuarios; la seguridad se delega al sistema de archivos. Además se ha de tener en cuenta en el ejercicio que hay que cambiar de nomenclatura para la creación de tabla según la base de datos que se esté usando.
+> _Nota:_ SQLite no gestiona usuarios; la seguridad se delega al sistema de archivos. Además se ha de tener en cuenta en el ejercicio que hay que cambiar de nomenclatura para la creación de tabla según la base de datos que se esté usando.
 
 ---
 
-
-
 <div style="page-break-after: always;"></div>
-
 
 ## Parte 3 - Automatización y Seguridad
 
@@ -235,7 +252,7 @@ CREATE TABLE clientes_backup AS
   SELECT * FROM clientes;
 ```
 
-> *Explicación:* Clona los datos en una tabla de respaldo instantánea.
+> _Explicación:_ Clona los datos en una tabla de respaldo instantánea.
 
 ---
 
@@ -263,9 +280,11 @@ END //
 DELIMITER ;
 ```
 
-> *Desafíos:* Manejar el cambio de delimitador correctamente y asegurar privilegios para `SIGNAL`.
+> _Desafíos:_ Manejar el cambio de delimitador correctamente y asegurar privilegios para `SIGNAL`.
 
 ---
+
+<div style="page-break-after: always;"></div>
 
 ### 3. Trigger de Auditoría (SQLite)
 
@@ -306,11 +325,9 @@ BEGIN
 END;
 ```
 
-> *Detalle:* SQLite 3.38+ requerido para funciones JSON; los triggers no admiten múltiples sentencias sin envolver.
+> _Detalle:_ SQLite 3.38+ requerido para funciones JSON; los triggers no admiten múltiples sentencias sin envolver.
 
 ---
-
-
 
 <div style="page-break-after: always;"></div>
 
@@ -373,8 +390,6 @@ Una vez creado el script de copia de seguridad `backup_windows.bat`, se procedi�
 
 ---
 
-
-
 <div style="page-break-after: always;"></div>
 
 ## Parte 5 - Monitoreo de Rendimiento
@@ -390,12 +405,9 @@ Una vez creado el script de copia de seguridad `backup_windows.bat`, se procedi�
 
 ---
 
-
-
 <div style="page-break-after: always;"></div>
 
-
-## 🖼️ Capturas de Pantalla Organizadas
+## Capturas de Pantalla Organizadas
 
 ### Parte 1 – MySQL: Configuración y Administración
 
@@ -405,11 +417,15 @@ Una vez creado el script de copia de seguridad `backup_windows.bat`, se procedi�
 
 > [Ver imagen a tamaño real](capturas_dbeaver/creacion_bd.png)
 
+<div style="page-break-after: always;"></div>
+
 #### 2. Usuarios DROP IF EXISTS
 
 ![Eliminar usuarios si existen](capturas_dbeaver/UsersDropIf.png)
 
 > [Ver imagen a tamaño real](capturas_dbeaver/UsersDropIf.png)
+
+<div style="page-break-after: always;"></div>
 
 #### 3. Crear base de datos MySQL
 
@@ -417,19 +433,25 @@ Una vez creado el script de copia de seguridad `backup_windows.bat`, se procedi�
 
 > [Ver imagen a tamaño real](capturas_dbeaver/CreateDBMySql.png)
 
+<div style="page-break-after: always;"></div>
+
 #### 4. Crear tabla clientes (MySQL)
 
 ![Crear tabla en MySQL](capturas_dbeaver/create_table.png)
 
 > [Ver imagen a tamaño real](capturas_dbeaver/create_table.png)
 
+<div style="page-break-after: always;"></div>
+
 #### 5. Crear índice para optimizar consultas
 
 ![Crear índice en clientes](capturas_dbeaver/createIndexMejoradeconsultas.png)
 
-> [Ver imagen a tamaño real](docs/capturas_dbeaver/createIndexMejoradeconsultas.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/createIndexMejoradeconsultas.png)
 
 ---
+
+<div style="page-break-after: always;"></div>
 
 ### Parte 2 – SQLite: Creación e Inserción de Datos
 
@@ -439,11 +461,15 @@ Una vez creado el script de copia de seguridad `backup_windows.bat`, se procedi�
 
 > [Ver imagen a tamaño real](capturas_dbeaver/nombreSqliteDB.png)
 
+<div style="page-break-after: always;"></div>
+
 #### 7. Definir ruta del archivo SQLite
 
 ![Ruta archivo SQLite](capturas_dbeaver/pathsqliteDB.png)
 
 > [Ver imagen a tamaño real](capturas_dbeaver/pathsqliteDB.png)
+
+<div style="page-break-after: always;"></div>
 
 #### 8. Crear base de datos SQLite
 
@@ -451,11 +477,15 @@ Una vez creado el script de copia de seguridad `backup_windows.bat`, se procedi�
 
 > [Ver imagen a tamaño real](capturas_dbeaver/CreateDBSqlite.png)
 
+<div style="page-break-after: always;"></div>
+
 #### 9. Crear tabla clientes SQLite (con DROP IF EXISTS)
 
 ![Crear tabla SQLite](capturas_dbeaver/create_tableSQLite_conDrop.png)
 
 > [Ver imagen a tamaño real](capturas_dbeaver/create_tableSQLite_conDrop.png)
+
+<div style="page-break-after: always;"></div>
 
 #### 10. Insertar registros de prueba
 
@@ -465,6 +495,8 @@ Una vez creado el script de copia de seguridad `backup_windows.bat`, se procedi�
 
 ---
 
+<div style="page-break-after: always;"></div>
+
 ### Parte 3 – Automatización y Seguridad
 
 #### 11. Backup manual de MySQL
@@ -473,11 +505,15 @@ Una vez creado el script de copia de seguridad `backup_windows.bat`, se procedi�
 
 > [Ver imagen a tamaño real](capturas_dbeaver/backupSQL.png)
 
+<div style="page-break-after: always;"></div>
+
 #### 12. Crear procedimiento almacenado (MySQL)
 
 ![Crear procedimiento](capturas_dbeaver/procedure.png)
 
 > [Ver imagen a tamaño real](capturas_dbeaver/procedure.png)
+
+<div style="page-break-after: always;"></div>
 
 #### 13. Ejecutar procedimiento almacenado - correcto
 
@@ -485,11 +521,15 @@ Una vez creado el script de copia de seguridad `backup_windows.bat`, se procedi�
 
 > [Ver imagen a tamaño real](capturas_dbeaver/CALLcomprobaciónProcedure.png)
 
+<div style="page-break-after: always;"></div>
+
 #### 14. Ejecutar procedimiento almacenado - error
 
 ![CALL procedimiento error](capturas_dbeaver/CALcomprobaciónProcedure2.png)
 
 > [Ver imagen a tamaño real](capturas_dbeaver/CALcomprobaciónProcedure2.png)
+
+<div style="page-break-after: always;"></div>
 
 #### 15. Mostrar procesos en ejecución
 
@@ -497,11 +537,15 @@ Una vez creado el script de copia de seguridad `backup_windows.bat`, se procedi�
 
 > [Ver imagen a tamaño real](capturas_dbeaver/ShowProcess.png)
 
+<div style="page-break-after: always;"></div>
+
 #### 16. Kill de procesos bloqueados o pesados (slow_process)
 
 ![Kill procesos](capturas_dbeaver/killprocess.png)
 
-> [Ver imagen a tamaño real](docs/capturas_dbeaver/killprocess.png)
+> [Ver imagen a tamaño real](capturas_dbeaver/killprocess.png)
+
+<div style="page-break-after: always;"></div>
 
 #### 17. Crear Trigger de auditoría
 
@@ -509,11 +553,15 @@ Una vez creado el script de copia de seguridad `backup_windows.bat`, se procedi�
 
 > [Ver imagen a tamaño real](capturas_dbeaver/creadoTriggerAudit.PNG)
 
+<div style="page-break-after: always;"></div>
+
 #### 18. Ejecutar UPDATE para probar Trigger
 
 ![Prueba UPDATE Trigger](capturas_dbeaver/pruebaUPDATE_trigger.PNG)
 
 > [Ver imagen a tamaño real](capturas_dbeaver/pruebaUPDATE_trigger.PNG)
+
+<div style="page-break-after: always;"></div>
 
 #### 19. Visualizar registros en log_clientes
 
@@ -523,6 +571,8 @@ Una vez creado el script de copia de seguridad `backup_windows.bat`, se procedi�
 
 ---
 
+<div style="page-break-after: always;"></div>
+
 ### Parte 4 – Planificación de Tareas y Backup
 
 #### 20. Script .bat de backup Windows
@@ -531,23 +581,31 @@ Una vez creado el script de copia de seguridad `backup_windows.bat`, se procedi�
 
 > [Ver imagen a tamaño real](capturas_dbeaver/ScriptbatWin.PNG)
 
+<div style="page-break-after: always;"></div>
+
 #### 21. Crear tarea programada en Windows
 
 ![Programador de tareas crear](capturas_dbeaver/programador_de_tareas_crear.PNG)
 
 > [Ver imagen a tamaño real](capturas_dbeaver/programador_de_tareas_crear.PNG)
 
+<div style="page-break-after: always;"></div>
+
 #### 22. Nombre y descripción de la tarea
 
-![Nombre y descripción tarea](capturas_dbeaver/nombre_y_descripcion_tarea.PNG)
+![Nombre y descripción tarea](capturas_dbeaver\nombre_y_descipcion_tarea.PNG)
 
-> [Ver imagen a tamaño real](capturas_dbeaver/nombre_y_descripcion_tarea.PNG)
+> [Ver imagen a tamaño real](capturas_dbeaver\nombre_y_descipcion_tarea.PNG)
+
+<div style="page-break-after: always;"></div>
 
 #### 23. Asignación de periodicidad diaria
 
-![Asignación de temporalidad](capturas_dbeaver/asignacion_de_temporalidad_tarea.PNG)
+![Asignación de temporalidad](capturas_dbeaver\asignación_de_temporalidad_tarea.PNG)
 
-> [Ver imagen a tamaño real](capturas_dbeaver/asignacion_de_temporalidad_tarea.PNG)
+> [Ver imagen a tamaño real](capturas_dbeaver\asignación_de_temporalidad_tarea.PNG)
+
+<div style="page-break-after: always;"></div>
 
 #### 24. Seleccionar el script .bat
 
@@ -555,17 +613,23 @@ Una vez creado el script de copia de seguridad `backup_windows.bat`, se procedi�
 
 > [Ver imagen a tamaño real](capturas_dbeaver/PathDeScript.PNG)
 
+<div style="page-break-after: always;"></div>
+
 #### 25. Opciones avanzadas: ejecutar con privilegios
 
-![Uso del inicio de programa](capturas_dbeaver/usoDelinicioPrograma.PNG)
+![Uso del inicio de programa](capturas_dbeaver\usoDeInicioProgramatareas.PNG)
 
-> [Ver imagen a tamaño real](capturas_dbeaver/usoDelinicioPrograma.PNG)
+> [Ver imagen a tamaño real](capturas_dbeaver\usoDeInicioProgramatareas.PNG)
+
+<div style="page-break-after: always;"></div>
 
 #### 26. Resultado de la tarea progr
 
 ![Resultado ejecución de tarea](capturas_dbeaver/resultado_tarea_programada.PNG)
 
 > [Ver imagen a tamaño real](capturas_dbeaver/resultado_tarea_programada.PNG)
+
+<div style="page-break-after: always;"></div>
 
 #### 27. Backup generado automáticamente
 
@@ -575,6 +639,8 @@ Una vez creado el script de copia de seguridad `backup_windows.bat`, se procedi�
 
 ---
 
+<div style="page-break-after: always;"></div>
+
 ### Parte 5 – Monitorización del Rendimiento
 
 #### 28. Acceso al Dashboard de DBeaver
@@ -583,11 +649,15 @@ Una vez creado el script de copia de seguridad `backup_windows.bat`, se procedi�
 
 > [Ver imagen a tamaño real](capturas_dbeaver/MonitorinDondeDashboard.png)
 
+<div style="page-break-after: always;"></div>
+
 #### 29. Vista general del Dashboard de Monitorización
 
-![Vista Dashboard Monitor](capturas_dbeaver/monitoringDashboard.PNG)
+![Vista Dashboard Monitor](capturas_dbeaver\monitorigDashboard.PNG)
 
-> [Ver imagen a tamaño real](capturas_dbeaver/monitoringDashboard.PNG)
+> [Ver imagen a tamaño real](capturas_dbeaver\monitorigDashboard.PNG)
+
+<div style="page-break-after: always;"></div>
 
 #### 30. Estado general del servidor (Server Status)
 
@@ -595,11 +665,15 @@ Una vez creado el script de copia de seguridad `backup_windows.bat`, se procedi�
 
 > [Ver imagen a tamaño real](capturas_dbeaver/monitoreoStatus.PNG)
 
+<div style="page-break-after: always;"></div>
+
 #### 31. Monitorizar procesos activos (SHOW PROCESSLIST)
 
 ![Monitor procesos](capturas_dbeaver/MonitoringShowProcess.PNG)
 
 > [Ver imagen a tamaño real](capturas_dbeaver/MonitoringShowProcess.PNG)
+
+<div style="page-break-after: always;"></div>
 
 #### 32. EXPLAIN de consultas para optimización
 
@@ -608,6 +682,8 @@ Una vez creado el script de copia de seguridad `backup_windows.bat`, se procedi�
 > [Ver imagen a tamaño real](capturas_dbeaver/MonitoringExplain.PNG)
 
 ---
+
+<div style="page-break-after: always;"></div>
 
 ## Conclusiones
 
@@ -633,5 +709,4 @@ Este proyecto ha permitido:
 
 ---
 
-> 🔗 **Repositorio de consulta:**
-> https://github.com/JuanHoob/Trabajo_IFCT0310_1470.git
+> 🔗 **Repositorio de consulta:** > https://github.com/JuanHoob/Trabajo_IFCT0310_1470.git
